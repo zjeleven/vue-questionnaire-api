@@ -97,11 +97,11 @@ class Naire extends CI_Controller
         $n_id = json_decode($this->input->raw_input_stream, true)['nId'];
         $result = $this->naire_model->submit_naire($post_data, $n_id, $user_id);
 
-        // 当用户成功提交后，发送提交成功邮件
-        if ($result['err'] == 0) {
-            $this->user_model->update_user_active($user_id);
-            self::_sendMail($user_id);
-        }
+        // // 当用户成功提交后，发送提交成功邮件
+        // if ($result['err'] == 0) {
+        //     $this->user_model->update_user_active($user_id);
+        //     self::_sendMail($user_id);
+        // }
 
         echo json_encode($result);
     }
